@@ -6,5 +6,5 @@
 
 ## 测试报告
 - [ExtentReports测试报告](https://github.com/xujiangchen/Test-Notes/blob/main/Test-Report/extentreports.md)
-- [Allure测试报告(java)](https://github.com/xujiangchen/Test-Notes/blob/main/Test-Report/allure-java.md)
-- [Allure测试报告(python)](https://github.com/xujiangchen/Test-Notes/blob/main/Test-Report/allure-python.md)
+- [Allure测试报告](https://github.com/xujiangchen/Test-Notes/blob/main/Test-Report/allure.md)
+
