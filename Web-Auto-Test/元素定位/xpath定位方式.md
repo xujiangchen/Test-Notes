@@ -61,4 +61,14 @@ xpath = "//input[@name='custName']"
 - following-sibling只会标识出当前节点结束标签之后的兄弟节点，而**不包含其他子节点**
 
 
-  
+### 2.3 常用的xpath函数
+
+使用功能函数能够更好的进行模糊搜索
+
+| 函数        | 用法                                                      | 解释                        |
+| ----------- | --------------------------------------------------------- | --------------------------- |
+| starts-with | xpath(‘//div[starts-with(@id,”ma”)]‘)                     | 选取id值以ma开头的div节点   |
+| contains    | xpath(‘//div[contains(@id,”ma”)]‘)                        | 选取id值包含ma的div节点     |
+| and         | xpath(‘//div[contains(@id,”ma”) and contains(@id,”in”)]‘) | 选取id值包含ma和in的div节点 |
+| text()      | xpath(‘//div[contains(text(),”ma”)]‘)                     | 选取节点文本包含ma的div节点 |
+
