@@ -22,6 +22,8 @@
 
 > 个人吐槽：虽然说css selector有各种有点，在实际工作中，因为Vue,React等各种响应式布局的广泛应用，其实大多数下还是使用xpath而不是css selector，很是无语
 
+### 2.2 Selenium
+
 ## 三、接口自动化测试
 
 ### 3.1 Robot Framework
