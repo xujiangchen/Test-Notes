@@ -26,3 +26,4 @@
 
 ### 3.1 Robot Framework
 - [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
+  （Robot Framework 安装的正确姿势，和在安装中常见的异常情况解决方法）
