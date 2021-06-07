@@ -25,4 +25,4 @@
 ## 三、接口自动化测试
 
 ### 3.1 Robot Framework
-- [安装 Robot Framework]()
+- [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
