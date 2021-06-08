@@ -24,6 +24,10 @@
 
 ### 2.2 Selenium
 
+- [Selenium常用API(Java)](https://github.com/xujiangchen/Selenium-Webdrive-3-Java/blob/main/Warehouse/Selenium%E5%B8%B8%E7%94%A8API.md)
+  
+  Java 代码中如何使用Selenium的jar包所提供的各种方法，来模拟操作页面上的各种操作。
+
 ## 三、接口自动化测试
 
 ### 3.1 Robot Framework
