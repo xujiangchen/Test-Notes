@@ -22,7 +22,7 @@
 
 > 个人吐槽：虽然说css selector有各种有点，在实际工作中，因为Vue,React等各种响应式布局的广泛应用，其实大多数下还是使用xpath而不是css selector，很是无语
 
-### 2.2 Selenium (Java)
+### 2.2 Selenium WebDriver 3 (Java)
 
 - [Selenium常用API](https://github.com/xujiangchen/Selenium-Webdrive-3-Java/blob/main/Warehouse/Selenium%E5%B8%B8%E7%94%A8API.md)
   
