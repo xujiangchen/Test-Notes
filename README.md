@@ -35,6 +35,9 @@
   在个人实际的应用中，显示等待和隐式等待一般配合使用，在初始化driver的时候，会定义一个时间稍长的隐式等待（一般10s），以防在某些页面加载慢但不需要校验的时候，页面元素没有加载处理而导致用例报错；
   而显示等待一般时间较短，用于某些测试用例中需要对页面元素进行特殊校验的时候使用。
   
+ - [WebDriver的高级应用实例](https://github.com/xujiangchen/Selenium-Webdrive-3-Java/blob/main/Warehouse/WebDriver%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B.md)
+
+  通过WebDriver对富文本框，时间控件，上传下载控件等一些特殊组件的具体操作方法
 
 ## 三、接口自动化测试
 
