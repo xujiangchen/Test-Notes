@@ -39,6 +39,10 @@
 
     通过WebDriver对富文本框，时间控件，上传下载控件等一些特殊组件的具体操作方法
 
+- [PageObject模式](https://github.com/xujiangchen/Selenium-Webdrive-3-Java/blob/main/Warehouse/PageObject%E6%A8%A1%E5%BC%8F.md)
+
+    什么是PageObject模式，我们为什么要使用这个模式，用PageObject写一个简单的用例
+    
 ## 三、接口自动化测试
 
 ### 3.1 Robot Framework
