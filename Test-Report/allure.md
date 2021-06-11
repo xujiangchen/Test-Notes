@@ -1,9 +1,9 @@
 - [Allure](#allure)
 - [Java环境使用Allure](#java----allure)
   * [前置条件](#前置条件)
-  * [Allure的Maven](#allure-maven)
-  * [Allure的注解](#allure---)
-  * [查看Allure的测试报告](#--allure-----)
+  * [Allure的Maven](#Allure的Maven)
+  * [Allure的注解](#Allure的注解)
+  * [查看Allure的测试报告](#查看Allure的测试报告)
 
 
 # Allure
