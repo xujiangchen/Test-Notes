@@ -50,6 +50,6 @@
   
   Robot Framework 安装的正确姿势，和在安装中常见的异常情况解决方法
   
-- [Robot Framework中的参数优先级]()
+- [RobotFramework中的变量、赋值](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/RobotFramework%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E3%80%81%E8%B5%8B%E5%80%BC.md)
 
-  Robot Framework 中是如何对各种参数定义优先级，在测试用例中使用定义各种参数时应该注意什么
+  Robot Framework 中是如何对定义变量，并给变量赋值，那么不同的变量之间的优先级关系是什么。
