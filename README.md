@@ -47,4 +47,9 @@
 
 ### 3.1 Robot Framework
 - [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
-  （Robot Framework 安装的正确姿势，和在安装中常见的异常情况解决方法）
+  
+  Robot Framework 安装的正确姿势，和在安装中常见的异常情况解决方法
+  
+- [Robot Framework中的参数优先级]()
+
+  Robot Framework 中是如何对各种参数定义优先级，在测试用例中使用定义各种参数时应该注意什么
