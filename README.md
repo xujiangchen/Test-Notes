@@ -46,10 +46,10 @@
 ## 三、接口自动化测试
 
 ### 3.1 Robot Framework
-- [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
+- [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/RobotFramework/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
   
   Robot Framework 安装的正确姿势，和在安装中常见的异常情况解决方法
   
-- [RobotFramework中的变量、赋值](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/RobotFramework%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E3%80%81%E8%B5%8B%E5%80%BC.md)
+- [RobotFramework中的变量、赋值](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/RobotFramework/RobotFramework%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E3%80%81%E8%B5%8B%E5%80%BC.md)
 
   Robot Framework 中是如何对定义变量，并给变量赋值，那么不同的变量之间的优先级关系是什么。
