@@ -1,15 +1,21 @@
-- [1、什么是TestNG](#1什么是TestNG)
+- [1、什么是TestNG](#1什么是testng)
 - [2、maven依赖](#2maven依赖)
-- [3、TestNG基本注解](#3TestNG基本注解)
-- [4、TestNG特殊测试场景](#4TestNG特殊测试场景)
-    - [4.1 预期异常测试](#41-预期异常测试)
-    - [4.2 忽略测试](#42-忽略测试)
-    - [4.3 超时测试](#43-超时测试)
-    - [4.4 分组测试](#44-分组测试)
-    - [4.5 依赖测试](#45-依赖测试)
-    - [4.6 参数化测试](#46-参数化测试)
-- [5、testNG的xml配置](#5testNG的xml配置)
-# TestNG
+- [3、TestNG基本注解](#3testng基本注解)
+- [4、TestNG特殊测试场景](#4testng特殊测试场景)
+  - [4.1 预期异常测试](#41-预期异常测试)
+  - [4.2 忽略测试](#42-忽略测试)
+  - [4.3 超时测试](#43-超时测试)
+  - [4.4 分组测试](#44-分组测试)
+  - [4.5 依赖测试](#45-依赖测试)
+  - [4.6 参数化测试](#46-参数化测试)
+- [5、testNG的xml配置](#5testng的xml配置)
+  - [5.1 `<suite>`](#51-suite)
+  - [5.2 `<test>`](#52-test)
+  - [5.3 `<parameter>`](#53-parameter)
+  - [5.4 `<groups>`](#54-groups)
+  - [5.5 `<classes>`](#55-classes)
+  - [5.6 `<packages>`](#56-packages)
+  - [5.7 `<listener>`](#57-listener)
 
 ## 1、什么是TestNG
 
@@ -220,7 +226,7 @@ public class TestParameterDataProvider {
 }
 ```
 
-## 5、testNG.xml配置
+## 5、testNG的xml配置
 **xml的详细结构：**
 ```xml
 <test name="xxxx">
@@ -255,7 +261,7 @@ public class TestParameterDataProvider {
 </test>
 ```
 
-#### 5.1 `<suite>`   
+### 5.1 `<suite>`   
 testng.xml文档中最上层的元素
 
 说明：一个xml文件只能有一个<suites>,是一个xml文件的根级<suite>由<test>和<parameters>组成
@@ -287,7 +293,7 @@ parallel
 - parallel="classes"  TestNG将并行执行在相同`<class>`下的方法在不同线程里
 - parallel="instances"  TestNG将并行执行相同实例下的所有方法在不同的线程里
 
-#### 5.2 `<test>`
+### 5.2 `<test>`
 说明：一个`<suite>`下可以有多个`<test>`，可以通过`<suite>`的parallel="tests"来进行并行测试，必须和thread-count配套使用，否则是无效参数,`<test>`由`<parameters>`、`<groups>`、`<classes>`三部分组成.
 
 |参数	|说明|	使用方法|	参数值|
@@ -305,9 +311,64 @@ parallel
 |allow-return-values|	是否允许返回函数值|	all-return-values="true"|	true和false，默认false|
 
 
-#### 5.3 `<parameter>`
+### 5.3 `<parameter>`
 说明：提供测试数据，有name和value两个参数
 
 声明方法：`<parameter name = "parameter_name" value = "parameter_value "/>`。
 
 testng.xml文件中的`<parameter>`可以声明在`<suite>`或者`<test>`级别，在`<test>`下的`<parameter>`会覆盖在`<suite>`下声明的同名变量
+
+### 5.4 `<groups>`
+说明：要运行的组，可以自定义一个组，可以包括要执行的，还排除要执行的方法。必须和`<classes>`配套使用，从下面的类中找到对应名字的方法
+
+`<groups>`由`<difine>`和`<run>`、`<dependencies>`三部分组成。`<diffine>`可以将group组成一个新组，包括要执行和不执行的大组；`<run>`要执行的方法；`<dependencies>`指定了某group需要依赖的group（比如下面的例子，group1需要依赖group2和group3先执行）。
+
+```xml
+<groups>
+     <define name ="all">
+          <include name ="testgroup1"/>
+          <exclude name ="testgroup2"/>
+     </define>
+     <run>
+          <include name ="all"/>
+          <include name ="testmethod1"/>
+          <exclude name="testmethod2"/>
+     </run>
+     <dependencies>
+          <group name ="group1" depends-on="goup2 group3"/>
+     </dependencies>
+</groups>
+```
+
+### 5.5 `<classes>`
+
+说明：方法选择器，要执行的方法写在这里，参数有name和priority。
+
+注释：
+1. `<classes>`下必须写要执行的`<class>`，否则不会执行任何内容，如果填写了class没有写methods，会按照填写的class的下的注释@Test去执行所有的方法
+2. `<classes>`下的`<methods>`如果填写了`<include>`，那只会执行所填写的方法，没有填写的方法不会去执行
+
+```xml
+<classes>
+     <class name="要执行的class名">
+          <methods>
+               <include name ="要执行的方法名"></include>
+          </methods>
+     </class>
+</classes>
+```
+
+### 5.6 `<packages>`
+说明：<packages>指定包名代替类名。查找包下的所有包含testNG annotation的类进行测试
+
+### 5.7 `<listener>`
+说明：指定listeners，这个class必须继承自org.testng.ITestNGListener。
+
+在java中使用@Listeners({com.example.MyListener.class,com.example.MyMethodInterceptor.class})的注释也可以有同样效果
+
+```xml
+<listeners>
+    <listener class-name="com.example.MyListener"/>
+    <listener class-name="com.example.MyMehodIntercepor"/>
+</listeners>
+```

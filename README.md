@@ -81,3 +81,9 @@
 >
 > 但是如果项目体量大，迭代周期长，存在许多定制化开发的技术点，以接口结合场景测试为主。建议还是使用真正的python代码去完成自动化测试。
 > 
+
+## 四、测试框架
+
+- [TestNG](https://github.com/xujiangchen/Test-Notes/blob/main/TestNG/TestNG.md)
+
+  Java测试框架TestNG，testng的用法，特殊使用场景，如何进行testng.xml配置
