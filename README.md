@@ -43,7 +43,7 @@
 
     什么是PageObject模式，我们为什么要使用这个模式，用PageObject写一个简单的用例
     
-## 三、接口自动化测试
+## 三、自动化测试工具
 
 ### 3.1 Robot Framework
 - [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/RobotFramework/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
