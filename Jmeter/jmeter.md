@@ -14,6 +14,7 @@
     - [6.4 查看结果数](#64-查看结果数)
     - [6.5 结果断言](#65-结果断言)
     - [6.6 聚合报告](#66-聚合报告)
+    - [6.7 CSV文件引用](#67-CSV文件引用)
   - [七、自定义变量和CSV可变参数](#七自定义变量和csv可变参数)
     - [7.1 自定义变量](#71-自定义变量)
     - [7.2 CSV可变参数](#72-csv可变参数)
@@ -285,6 +286,28 @@
 </ResultCollector>
 ```
 
+### 6.7 CSV文件引用
+```xml
+ <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV 数据文件设置" enabled="true">
+  <!--以什么为分隔符-->
+  <stringProp name="delimiter">,</stringProp>
+  <!--编码格式-->
+  <stringProp name="fileEncoding"></stringProp>
+  <!--文件位置-->
+  <stringProp name="filename">C:\Users\Administrator\Desktop\test.csv</stringProp>
+  <!--是否忽略第一行-->
+  <boolProp name="ignoreFirstLine">false</boolProp>
+  <boolProp name="quotedData">false</boolProp>
+  <!--文件中数据是否循环获取-->
+  <boolProp name="recycle">true</boolProp>
+  <!--共享模式-->
+  <stringProp name="shareMode">shareMode.all</stringProp>
+  <boolProp name="stopThread">false</boolProp>
+  <!--变量名称-->
+  <stringProp name="variableNames">csv_name</stringProp>
+</CSVDataSet>
+```
+
 ## 七、自定义变量和CSV可变参数
 
 ### 7.1 自定义变量
@@ -297,3 +320,19 @@
 ### 7.2 CSV可变参数
 
 **线程组->add -> Config Element(配置原件)-> CSV data set config (CSV数据文件设置)**
+
+![jmeter-1](https://github.com/xujiangchen/Test-Notes/blob/main/Jmeter/imgs/csv.png)
+
+引用csv文件数据的时候也是通过`${XXX}`进行获取
+```
+csv 文件中某一行数据：
+user1,pwd123,man
+
+变量名称：
+csv_name,csv_ps,csv_sex
+
+在实际的引用中
+${csv_name}=user1
+${csv_ps}=pwd123
+${csv_sex}=man
+```
