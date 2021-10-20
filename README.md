@@ -43,7 +43,7 @@
 
     什么是PageObject模式，我们为什么要使用这个模式，用PageObject写一个简单的用例
     
-## 三、自动化测试工具
+## 三、自动化测试框架
 
 ### 3.1 Robot Framework
 - [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/RobotFramework/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
@@ -56,7 +56,7 @@
 
 - [如何实际应用RobotFramework]()
 
-  在实际的使用中，我们应该如何正确的给RF分层，最大化的利用它关键字驱动的特性。
+  在实际的使用中，我们应该正确的给RF分层，最大化的利用它关键字驱动的特性。
 
 > Robot Framework 的个人使用体会：在实际的测试过程中RF确实有着不少优势，但是同样RF也存在着很多难以掩盖的缺点。
 >
@@ -82,8 +82,6 @@
 > 但是如果项目体量大，迭代周期长，存在许多定制化开发的技术点，以接口结合场景测试为主。建议还是使用真正的python代码去完成自动化测试。
 > 
 
-## 四、测试框架
-
-- [TestNG](https://github.com/xujiangchen/Test-Notes/blob/main/TestNG/TestNG.md)
+### 3.2 [TestNG](https://github.com/xujiangchen/Test-Notes/blob/main/TestNG/TestNG.md)
 
   Java测试框架TestNG，testng的用法，特殊使用场景，如何进行testng.xml配置
