@@ -1,4 +1,14 @@
-# 前言
+- [前言](#前言)
+- [一、测试报告](#一测试报告)
+- [二、前端自动化测试](#二前端自动化测试)
+  - [2.1 前端元素定位方式](#21-前端元素定位方式)
+  - [2.2 Selenium WebDriver 3 (Java)](#22-selenium-webdriver-3-java)
+- [三、自动化测试框架](#三自动化测试框架)
+  - [3.1 Robot Framework](#31-robot-framework)
+  - [3.2 TestNG](#32-testng)
+  - [3.3 Unittest](#33-unittest)
+
+## 前言
 用于记录测试工作中的各个学习笔记和问题解决方法
 
 ## 一、测试报告
@@ -46,11 +56,11 @@
 ## 三、自动化测试框架
 
 ### 3.1 Robot Framework
-- [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/RobotFramework/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
+- [安装 Robot Framework](https://github.com/xujiangchen/Test-Notes/blob/main/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/RobotFramework/%E5%AE%89%E8%A3%85%20Robot%20Framework.md)
   
   Robot Framework 安装的正确姿势，和在安装中常见的异常情况解决方法
   
-- [RobotFramework中的变量、赋值](https://github.com/xujiangchen/Test-Notes/blob/main/Interface-automation/RobotFramework/RobotFramework%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E3%80%81%E8%B5%8B%E5%80%BC.md)
+- [RobotFramework中的变量、赋值](https://github.com/xujiangchen/Test-Notes/blob/main/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/RobotFramework/RobotFramework%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E3%80%81%E8%B5%8B%E5%80%BC.md)
 
   Robot Framework 中是如何对定义变量，并给变量赋值，那么不同的变量之间的优先级关系是什么。
 
@@ -82,6 +92,12 @@
 > 但是如果项目体量大，迭代周期长，存在许多定制化开发的技术点，以接口结合场景测试为主。建议还是使用真正的python代码去完成自动化测试。
 > 
 
-### 3.2 [TestNG](https://github.com/xujiangchen/Test-Notes/blob/main/TestNG/TestNG.md)
+### 3.2 TestNG
+
+- [使用TestNG](https://github.com/xujiangchen/Test-Notes/tree/main/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/TestNG)
 
   Java测试框架TestNG，testng的用法，特殊使用场景，如何进行testng.xml配置
+
+### 3.3 Unittest
+
+- [使用Unittest]()
