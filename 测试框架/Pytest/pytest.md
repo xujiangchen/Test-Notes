@@ -7,6 +7,11 @@
   - [5.2 共享 fixture 函数：conftest.py](#52-共享-fixture-函数conftestpy)
   - [5.3 yield方法](#53-yield方法)
   - [5.4 fixture 作用范围：Scope](#54-fixture-作用范围scope)
+- [6、参数化用例](#6参数化用例)
+  - [6.1 参数化使用 @pytest.mark.parametrize](#61-参数化使用-pytestmarkparametrize)
+    - [6.1.1 多次使用 parametrize](#611-多次使用-parametrize)
+    - [6.1.2 @pytest.fixture 与 @pytest.mark.parametrize 结合](#612-pytestfixture-与-pytestmarkparametrize-结合)
+  - [6.2 yaml 实现参数化](#62-yaml-实现参数化)
 
 
 ## 1、什么是pytest
@@ -151,5 +156,106 @@ import pytest
 @pytest.fixture(scope="class")
 def login():
     print("登录...")
+
+```
+
+## 6、参数化用例
+
+### 6.1 参数化使用 @pytest.mark.parametrize
+
+**parametrize( ) 方法源码：**
+```python
+def parametrize(self,argnames, argvalues, indirect=False, ids=None, \scope=None):
+
+# argnames: 需要参数化的变量，String(逗号分隔)，list，tuple
+# argvalues：参数化的值，list，list[tuple]
+```
+**Demo**
+```python
+import pytest
+
+
+class TestClass:
+
+    @pytest.mark.parametrize("a,b", [(10, 20), (30, 40)])
+    def test_param(self, a, b):
+        print(a+b)
+
+
+if __name__ == "__main__":
+    pytest.main(["test_demo.py", "-v"])
+```
+#### 6.1.1 多次使用 parametrize
+同一个测试用例还可以同时添加多个 @pytest.mark.parametrize 装饰器, 多个 parametrize 的所有元素互相组合（类似笛卡儿乘积），生成大量测试用例。
+```python
+@pytest.mark.parametrize("x",[1,2])
+@pytest.mark.parametrize("y",[8,10,11])
+def test_foo(x,y):
+    print(f"测试数据组合x: {x} , y:{y}")
+```
+
+#### 6.1.2 @pytest.fixture 与 @pytest.mark.parametrize 结合
+如果测试数据**需要在 fixture 方法中使用，同时也需要在测试用例中使用**，可以在使用 parametrize 的时候添加一个参数 `indirect=True`，pytest 可以实现将参数传入到 fixture 方法中，也可以在当前的测试用例中使用。
+```python
+# 方法名作为参数
+test_user_data = ['Tome', 'Jerry']
+
+@pytest.fixture(scope="module")
+def login_r(request):
+    # 通过request.param获取参数
+    user = request.param
+    print(f"\n 登录用户：{user}")
+    return user
+
+@pytest.mark.parametrize("login_r", test_user_data,indirect=True)
+def test_login(login_r):
+    a = login_r
+    print(f"测试用例中login的返回值; {a}")
+    assert a != ""
+```
+
+### 6.2 yaml 实现参数化
+
+**读取yaml文件**
+
+```python
+data = yaml.safe_load(open('./data.yaml'))
+```
+
+**@pytest.mark.parametrize + yaml**
+- yaml文件内容
+```yaml
+-
+  - 10
+  - 20
+-
+  - 30
+  - 40
+```
+- pytest写法
+```
+@pytest.mark.parametrize("a,b", yaml.safe_load(open('./data.yaml', encoding='utf-8')))
+```
+
+**Demo**
+```python
+
+"""
+environment:
+  - env: dev
+
+"""
+
+class TestClass:
+
+    @pytest.mark.parametrize("environment", yaml.safe_load(open("./data.yaml"))['environment'])
+    def test_param(self, environment):
+        env = environment['env']
+        if "test" in env:
+            print("这是测试环境", env)
+        elif "dev" in env:
+            print("这是开发环境", env)
+        else:
+            print("错误")
 
 ```
