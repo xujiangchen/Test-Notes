@@ -12,6 +12,13 @@
     - [6.1.1 多次使用 parametrize](#611-多次使用-parametrize)
     - [6.1.2 @pytest.fixture 与 @pytest.mark.parametrize 结合](#612-pytestfixture-与-pytestmarkparametrize-结合)
   - [6.2 yaml 实现参数化](#62-yaml-实现参数化)
+    - [6.2.1 读取yaml文件](#621-读取yaml文件)
+    - [6.2.2 @pytest.mark.parametrize + yaml](#622-pytestmarkparametrize--yaml)
+    - [6.2.3 Demo](#623-demo)
+- [7、定制测试报告（allure）](#7定制测试报告allure)
+  - [7.1 安装](#71-安装)
+  - [7.2 使用](#72-使用)
+    - [7.2.1 Demo](#721-demo)
 
 
 ## 1、什么是pytest
@@ -216,13 +223,13 @@ def test_login(login_r):
 
 ### 6.2 yaml 实现参数化
 
-**读取yaml文件**
+#### 6.2.1 读取yaml文件
 
 ```python
 data = yaml.safe_load(open('./data.yaml'))
 ```
 
-**@pytest.mark.parametrize + yaml**
+#### 6.2.2 @pytest.mark.parametrize + yaml
 - yaml文件内容
 ```yaml
 -
@@ -237,7 +244,7 @@ data = yaml.safe_load(open('./data.yaml'))
 @pytest.mark.parametrize("a,b", yaml.safe_load(open('./data.yaml', encoding='utf-8')))
 ```
 
-**Demo**
+#### 6.2.3 Demo
 ```python
 
 """
@@ -258,4 +265,40 @@ class TestClass:
         else:
             print("错误")
 
+```
+
+## 7、定制测试报告（allure）
+
+### 7.1 安装
+- 1.因为allure2需要在java的环境下，并且要求必须是jdk1.8级以上
+- 2.安装pytest：`pip install pytest`
+- 3.安装allure-pytest：`pip install allure-pytest`
+- 4.安装allure：
+  - 下载allure2：`https://github.com/allure-framework/allure2/releases`，下载后解压，放在某个位置；配置环境变量：环境变量path中加上解压好的文件夹下的bin目录下的allure.bat文件的路径
+
+### 7.2 使用
+
+#### 7.2.1 Demo
+```python
+import pytest
+import allure
+
+@allure.feature('test_module_01')
+def test_case_01():
+    """
+    用例描述：Test case 01
+    """
+    assert 0
+
+
+@allure.feature('test_module_02')
+def test_case_02():
+    """
+    用例描述：Test case 02
+    """
+    assert 0 == 0
+
+
+if __name__ == '__main__':
+    pytest.main(['-s', '-q', '--alluredir', './report'])
 ```
