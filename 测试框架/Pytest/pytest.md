@@ -19,6 +19,10 @@
   - [7.1 安装](#71-安装)
   - [7.2 使用](#72-使用)
     - [7.2.1 Demo](#721-demo)
+    - [7.2.2 生成html报告](#722-生成html报告)
+  - [7.3 常用特性](#73-常用特性)
+    - [7.3.1 打标记](#731-打标记)
+    - [7.3.2 通过标记，筛选用例执行](#732-通过标记筛选用例执行)
 
 
 ## 1、什么是pytest
@@ -279,6 +283,7 @@ class TestClass:
 ### 7.2 使用
 
 #### 7.2.1 Demo
+
 ```python
 import pytest
 import allure
@@ -301,4 +306,80 @@ def test_case_02():
 
 if __name__ == '__main__':
     pytest.main(['-s', '-q', '--alluredir', './report'])
+
 ```
+
+运行结束之后通过,进入目录通过命令 `allure serve ./report` 生成测试报告
+
+#### 7.2.2 生成html报告
+
+执行代码后直接生成的是json文件，通过命令生成了html，但是如果以后再先查看就比较的麻烦，现在将这些json文件转换为html文件，用于保留。
+
+- 生成HTML文件 `allure generate ./result/ -o ./report/ --clear` (覆盖其路径加--clear)
+- 启动tomcat查看 `allure open -h 127.0.0.1 -p 8864 ./report`
+
+### 7.3 常用特性
+
+#### 7.3.1 打标记
+allure报告可以包含很多详细的信息描述测试用例，包括epic、feature、story、title、issue、testcase、severity等
+| 使用 | 参数说明 |
+| --- | --- |
+| @alluer.epic() | 敏捷中的概念,代表的是史诗故事，即非常大（巨大）的用户故事 |
+| @alluer.feture() | 模块名称，功能点的描述 |
+| @alluer.story() | 用户故事，具体而详细的功能点 |
+| @alluer.title() | 用例的标题 |
+| @alluer.testcase() | 测试用例的连接地址，对应测试系统里面的case |
+| @alluer.issue() | 缺陷，对应缺陷管理系统里面相应的缺陷 |
+| @alluer.description() | 对用例的相关描述 |
+| @alluer.step() | 测试用例的步骤 |
+| @alluer.severity() | 用例的等级 |
+| @alluer.link() | 链接 |
+| @alluer.attachment() | 附件 |
+
+```python
+import pytest
+import allure
+
+
+@pytest.fixture()
+def open_web():
+    print("前置条件：打开页面")
+
+
+@allure.epic("dxp系统")
+@allure.feature("登录模块")
+class Test:
+
+    @allure.testcase("www.case.com")
+    @allure.issue("www.issue.com")
+    @allure.title("登录测试用例1")
+    @allure.story("登录成功")
+    def test_login_success(self, open_web):
+        print("登录成功！")
+        pass
+
+    @allure.testcase("www.case.com")
+    @allure.issue("www.issue.com")
+    @allure.title("登录测试用例1")
+    @allure.story("登录失败")
+    def test_login_failure(self, open_web):
+        with allure.step("输入用户名"):
+            print("输入用户名！")
+        with allure.step("输入密码"):
+            print("输入密码！")
+        with allure.step("进行判断"):
+            assert '1' == 1
+            print("登录失败")
+
+
+if __name__ == '__main__':
+    pytest.main(['-s', '-q', 'test_allure.py', '--alluredir', './result'])
+```
+#### 7.3.2 通过标记，筛选用例执行
+
+- 选择运行你要执行epic的用例
+  - `pytest --alluredir ./report/allure --allure-epics=epic`
+- 选择运行你要执行features的用例
+  - `pytest --alluredir ./report/allure --allure-features=模块2`
+- 选择运行你要执行features的用例
+  - `pytest --alluredir ./report/allure --allure-stories="用户故事"`

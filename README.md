@@ -7,6 +7,7 @@
   - [3.1 Robot Framework](#31-robot-framework)
   - [3.2 TestNG](#32-testng)
   - [3.3 Unittest](#33-unittest)
+  - [3.3 Pytest](#33-pytest)
 
 ## 前言
 用于记录测试工作中的各个学习笔记和问题解决方法
@@ -36,20 +37,20 @@
 
 - [用IDEA+Maven搭建一个简单的selenium测试环境]()
 
-- [Selenium常用API](https://github.com/xujiangchen/Selenium-Webdrive-3-Java/blob/main/Warehouse/Selenium%E5%B8%B8%E7%94%A8API.md)
+- [Selenium常用API](https://github.com/xujiangchen/Selenium-Webdrive-3/blob/main/Java/Warehouse/Selenium%E5%B8%B8%E7%94%A8API.md)
   
   Java 代码中如何使用Selenium的jar包所提供的各种方法，来模拟操作页面上的各种操作。
   
-- [Selenium中的等待方式](https://github.com/xujiangchen/Selenium-Webdrive-3-Java/blob/main/Warehouse/%E7%AD%89%E5%BE%85%E6%96%B9%E5%BC%8F.md)
+- [Selenium中的等待方式](https://github.com/xujiangchen/Selenium-Webdrive-3/blob/main/Java/Warehouse/%E7%AD%89%E5%BE%85%E6%96%B9%E5%BC%8F.md)
 
   在个人实际的应用中，显示等待和隐式等待一般配合使用，在初始化driver的时候，会定义一个时间稍长的隐式等待（一般10s），以防在某些页面加载慢但不需要校验的时候，页面元素没有加载处理而导致用例报错；
   而显示等待一般时间较短，用于某些测试用例中需要对页面元素进行特殊校验的时候使用。
   
- - [WebDriver的高级应用实例](https://github.com/xujiangchen/Selenium-Webdrive-3-Java/blob/main/Warehouse/WebDriver%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B.md)
+ - [WebDriver的高级应用实例](https://github.com/xujiangchen/Selenium-Webdrive-3/blob/main/Java/Warehouse/WebDriver%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B.md)
 
     通过WebDriver对富文本框，时间控件，上传下载控件等一些特殊组件的具体操作方法
 
-- [PageObject模式](https://github.com/xujiangchen/Selenium-Webdrive-3-Java/blob/main/Warehouse/PageObject%E6%A8%A1%E5%BC%8F.md)
+- [PageObject模式](https://github.com/xujiangchen/Selenium-Webdrive-3/blob/main/Java/Warehouse/PageObject%E6%A8%A1%E5%BC%8F.md)
 
     什么是PageObject模式，我们为什么要使用这个模式，用PageObject写一个简单的用例
     
@@ -100,4 +101,16 @@
 
 ### 3.3 Unittest
 
-- [使用Unittest]()
+- [使用Unittest](https://github.com/xujiangchen/Test-Notes/tree/main/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Unittest)
+
+  Unittest的简单介绍和使用，目前在自动化测试过程中不再建议使用Unittest测试框架。
+
+### 3.3 Pytest
+
+- [使用Pytest](https://github.com/xujiangchen/Test-Notes/tree/main/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest)
+
+  Pytest的使用和安装，pytest所特有的优化，以及如何通过allure定制化的生成测试报告
+
+- [pytest插件开发]()
+
+  如何开发pytest插件，了解什么是hook函数，打包发布自定义的pytest插件
