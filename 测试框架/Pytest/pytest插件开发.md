@@ -251,6 +251,6 @@ setuptools.setup(
 
 执行完后目录如下
 
-![目录结构]()
+![目录结构](https://github.com/xujiangchen/Test-Notes/blob/main/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest/img/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
 
 dist的文件夹中有两个文件，以tar.gz结尾的文件是源码包，而以whl结尾的文件是可以通过 `pip install 路径` 进行直接安装的。

@@ -2,7 +2,9 @@
 - [一、测试报告](#一测试报告)
 - [二、前端自动化测试](#二前端自动化测试)
   - [2.1 前端元素定位方式](#21-前端元素定位方式)
-  - [2.2 Selenium WebDriver 3 (Java)](#22-selenium-webdriver-3-java)
+  - [2.2 Selenium WebDriver 3](#22-selenium-webdriver-3)
+    - [2.2.1 Java + Selenium](#221-java--selenium)
+    - [2.2.2 python + Selenium](#222-python--selenium)
 - [三、自动化测试框架](#三自动化测试框架)
   - [3.1 Robot Framework](#31-robot-framework)
   - [3.2 TestNG](#32-testng)
@@ -33,8 +35,9 @@
 
 > 个人吐槽：虽然说css selector有各种有点，在实际工作中，因为Vue,React等各种响应式布局的广泛应用，其实大多数下还是使用xpath而不是css selector，很是无语
 
-### 2.2 Selenium WebDriver 3 (Java)
+### 2.2 Selenium WebDriver 3 
 
+#### 2.2.1 Java + Selenium
 - [用IDEA+Maven搭建一个简单的selenium测试环境]()
 
 - [Selenium常用API](https://github.com/xujiangchen/Selenium-Webdrive-3/blob/main/Java/Warehouse/Selenium%E5%B8%B8%E7%94%A8API.md)
@@ -53,6 +56,8 @@
 - [PageObject模式](https://github.com/xujiangchen/Selenium-Webdrive-3/blob/main/Java/Warehouse/PageObject%E6%A8%A1%E5%BC%8F.md)
 
     什么是PageObject模式，我们为什么要使用这个模式，用PageObject写一个简单的用例
+
+#### 2.2.2 python + Selenium
     
 ## 三、自动化测试框架
 
@@ -111,6 +116,6 @@
 
   Pytest的使用和安装，pytest所特有的优化，以及如何通过allure定制化的生成测试报告
 
-- [pytest插件开发]()
+- [pytest插件开发](https://github.com/xujiangchen/Test-Notes/blob/main/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest/pytest%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.md)
 
   如何开发pytest插件，了解什么是hook函数，打包发布自定义的pytest插件
