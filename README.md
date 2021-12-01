@@ -26,7 +26,7 @@
 **推荐的定位方式的优先级：id > name > CSS selector > Xpath**
 
 - [xpath定位](https://github.com/xujiangchen/Test-Notes/blob/main/Web-Auto-Test/%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D/xpath%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F.md)
-- [css定位]()
+- [css定位](https://github.com/xujiangchen/Test-Notes/blob/main/Web-Auto-Test/%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D/css%E5%AE%9A%E4%BD%8D.md)
 
 **css selector和xpath的简单对比**
 
