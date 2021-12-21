@@ -10,6 +10,8 @@
   - [3.2 TestNG](#32-testng)
   - [3.3 Unittest](#33-unittest)
   - [3.3 Pytest](#33-pytest)
+- [四、接口自动化](#四接口自动化)
+  - [4.1 接口协议与抓包](#41-接口协议与抓包)
 
 
 ## 前言
@@ -120,3 +122,13 @@
 - [pytest插件开发](https://github.com/xujiangchen/Test-Notes/blob/main/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest/pytest%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.md)
 
   如何开发pytest插件，了解什么是hook函数，打包发布自定义的pytest插件
+
+## 四、接口自动化
+
+### 4.1 接口协议与抓包
+
+- [常见协议和请求](https://github.com/xujiangchen/Test-Notes/blob/main/Interface/%E5%B8%B8%E8%A7%81%E6%8E%A5%E5%8F%A3%E5%8D%8F%E8%AE%AE.md)
+
+  七层和四层网络协议，tcp和udp的异同，什么是Restful，http/https......
+
+- [抓包分析]()
