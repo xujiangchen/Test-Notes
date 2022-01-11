@@ -18,7 +18,7 @@
   - [七、自定义变量和CSV可变参数](#七自定义变量和csv可变参数)
     - [7.1 自定义变量](#71-自定义变量)
     - [7.2 CSV可变参数](#72-csv可变参数)
-  - [八、Mysql数据库压测](#八mysql数据库压测)
+  - [八、录制脚本 Recording Controller](#八录制脚本-recording-controller)
 
 
 # jmeter
@@ -338,4 +338,22 @@ ${csv_ps}=pwd123
 ${csv_sex}=man
 ```
 
-## 八、Mysql数据库压测
+## 八、录制脚本 Recording Controller
+
+- 第一步：设置代理
+
+![设置代理](https://github.com/xujiangchen/Test-Notes/blob/main/Jmeter/imgs/daili.png)
+
+- 第二步：配置代理
+
+![设置代理](https://github.com/xujiangchen/Test-Notes/blob/main/Jmeter/imgs/setting.png)
+
+- 第三步：创建录制组件
+
+![创建录制组件](https://github.com/xujiangchen/Test-Notes/blob/main/Jmeter/imgs/RecordingController.png)
+
+- 第四步：安装证书
+
+当完成上面三步之后，点击代理的开始按钮会给出提示，点击【确定】，会在jmeter的bin目录下生成两个https的证书，双击生成的证书
+
+![安装证书](https://github.com/xujiangchen/Test-Notes/blob/main/Jmeter/imgs/certificate.png)
