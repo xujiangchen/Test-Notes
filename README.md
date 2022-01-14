@@ -12,6 +12,7 @@
   - [3.3 Pytest](#33-pytest)
 - [四、接口自动化](#四接口自动化)
   - [4.1 接口协议与抓包](#41-接口协议与抓包)
+- [五、安全测试](#五安全测试)
 
 
 ## 前言
@@ -131,4 +132,12 @@
 
   七层和四层网络协议，tcp和udp的异同，什么是Restful，http/https......
 
-- [抓包分析]()
+- [抓包分析](https://github.com/xujiangchen/Test-Notes/blob/main/Interface/%E6%8A%93%E5%8C%85.md)
+
+  设置代理，使用curl命令行和Charles抓包工具进行抓包
+
+## 五、安全测试
+
+- [搭建Dvwa安全测试环境](https://github.com/xujiangchen/Test-Notes/blob/main/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/%E6%90%AD%E5%BB%BA%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83.md)
+
+- [常见安全测试漏洞](https://github.com/xujiangchen/Test-Notes/blob/main/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E.md)
