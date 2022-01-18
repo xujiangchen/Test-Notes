@@ -1,9 +1,12 @@
 - [Docker](#docker)
   - [一、Linux安装docker](#一linux安装docker)
-  - [二、docker的基本增删改查相关镜像](#二docker的基本增删改查相关镜像)
-  - [四、自定义镜像](#四自定义镜像)
-    - [4.1 commit构建镜像](#41-commit构建镜像)
-    - [4.2 Dockerfile构建镜像](#42-dockerfile构建镜像)
+    - [二、docker的基本操作](#二docker的基本操作)
+      - [2.1 对镜像的基础增删改查](#21-对镜像的基础增删改查)
+      - [2.2 容器的构建的基本操作](#22-容器的构建的基本操作)
+      - [2.3 容器的文件复制与挂载](#23-容器的文件复制与挂载)
+  - [三、自定义镜像](#三自定义镜像)
+    - [3.1 commit构建镜像](#31-commit构建镜像)
+    - [3.2 Dockerfile构建镜像](#32-dockerfile构建镜像)
 
 # Docker
 
@@ -44,7 +47,9 @@ sudo systemctl restart docker
 ```
 
 
-## 二、docker的基本增删改查相关镜像
+### 二、docker的基本操作
+
+#### 2.1 对镜像的基础增删改查
 
 - 查看本地镜像：`docker images`
 - 搜索镜像：`docker search centos`
@@ -54,14 +59,43 @@ sudo systemctl restart docker
 - 修改本地镜像名字（小写）：`docker tag centos:7 mycentos:1`
 - 本地镜像的删除：`docker rmi centos:7`
 
+#### 2.2 容器的构建的基本操作
 
-## 四、自定义镜像
+- 构建容器：`docker run -itd --name=mycentos centos:7`
+- -i ：表示以交互模式运行容器（让容器的标准输入保持打开）
+- -d：表示后台运行容器，并返回容器ID
+- -t：为容器重新分配一个伪输入终端
+- --name：为容器指定名称
+- 查看本地所有的容器(运行中的和停止的)：`docker ps -a`
+- 查看本地正在运行的容器：`docker ps`
+- 停止容器：`docker stop CONTAINER_ID / CONTAINER_NAME`
+- 一次性停止所有容器：`docker stop $(docker ps -a -q)`
+- 启动容器：`docker start CONTAINER_ID / CONTAINER_NAME`
+- 重启容器：`docker restart CONTAINER_ID / CONTAINER_NAME`
+- 删除容器：`docker rm CONTAINER_ID / CONTAINER_NAME`
+- 强制删除容器：`docker rmi -f CONTAINER_ID / CONTAINER_NAME`
+- 查看容器详细信息：`docker inspect CONTAINER_ID / CONTAINER_NAME`
+- 进入容器：docker `exec -it 0ad5d7b2c3a4 /bin/bash`
+
+#### 2.3 容器的文件复制与挂载
+
+1、从宿主机复制到容器：docker cp 宿主机本地路径 容器名字/ID：容器路径
+- `docker cp /root/123.txt mycentos:/home/`
+
+2、从容器复制到宿主机：docker cp 容器名字/ID：容器路径 宿主机本地路径
+- `docker cp mycentos:/home/456.txt /root`
+
+3、宿主机文件夹挂载到容器里：docker run -itd -v 宿主机路径:容器路径 镜像ID
+- `docker run -itd -v /root/xdclass/:/home centos:7`
+
+
+## 三、自定义镜像
 
 - docker目前镜像的制作有俩种方法：
   - 基于Docker Commit制作镜像
   - 基于dockerfile制作镜像，Dockerfile方式为主流的制作镜像方式
 
-### 4.1 commit构建镜像
+### 3.1 commit构建镜像
 
 以contos:7 镜像为例：
 
@@ -74,7 +108,7 @@ sudo systemctl restart docker
   - -m：说明注释
 
 
-### 4.2 Dockerfile构建镜像
+### 3.2 Dockerfile构建镜像
 
 - 一个简单的Dockerfile文件
 ```
