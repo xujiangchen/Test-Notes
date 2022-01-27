@@ -24,6 +24,8 @@
       - [6.2.2 compose操作容器](#622-compose操作容器)
     - [6.3 Docker-Compose常用技能](#63-docker-compose常用技能)
   - [七、镜像仓库](#七镜像仓库)
+    - [7.1 harbor仓库搭建](#71-harbor仓库搭建)
+    - [7.2 配置与使用harbor仓库](#72-配置与使用harbor仓库)
 
 # Docker
 
@@ -370,8 +372,40 @@ version: '3'
       # 让后台启动生效
       tty: true
       # 端口映射 本地宿主机的端口：容器端口
-      post:
+      ports:
       - "6380:6379"
 ```
 
 ## 七、镜像仓库
+
+### 7.1 harbor仓库搭建
+
+- 安装之前确保前置条件是否满足，需要安装docker、docker-compose、openssl以及python2.7以上
+- Harbor离线版安装下载地址 `https://github.com/goharbor/harbor/releases`
+- 解压缩安装包
+- 修改配置（harbor.yml）：
+  - 修改主机名（注意空格）：hostname: 192.168.0.151
+  - 修改密码（注意空格）：harbor_admin_password: Harbor12345
+- 执行脚本：`sh prepare`
+- 执行安装命令：`sh install.sh`
+- 执行命令：`docker-compose ps`
+- 访问Harbor，默认用户名admin
+- 关闭：`docker-compose down`
+- 启动：`docker-compose up -d`
+
+### 7.2 配置与使用harbor仓库
+
+- Docker配置使用自建仓库
+  - 默认docker只允许访问 https仓库,如果要访问http仓库需要自己配置
+  - 配置允许访问http仓库：/etc/docker/daemon.json
+```
+{
+  "insecure-registries":["http://ip地址"]
+}
+```
+- 重启docker服务：systemctl restart docker.service
+- 网页上创建项目名
+- 登录：docker login --username=admin 192.168.0.151
+- 改名：docker tag mysql:5.7 192.168.0.151/xdclass/mysql:5.7
+- 推送：docker push 192.168.0.151/xdclass/mysql:5.7
+- 下载：docker pull 192.168.0.151/xdclass/mysql:5.7
