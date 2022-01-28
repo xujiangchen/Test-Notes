@@ -26,6 +26,7 @@
   - [七、镜像仓库](#七镜像仓库)
     - [7.1 harbor仓库搭建](#71-harbor仓库搭建)
     - [7.2 配置与使用harbor仓库](#72-配置与使用harbor仓库)
+    - [7.3 本地镜像容器的载入与载出](#73-本地镜像容器的载入与载出)
 
 # Docker
 
@@ -409,3 +410,20 @@ version: '3'
 - 改名：docker tag mysql:5.7 192.168.0.151/xdclass/mysql:5.7
 - 推送：docker push 192.168.0.151/xdclass/mysql:5.7
 - 下载：docker pull 192.168.0.151/xdclass/mysql:5.7
+
+### 7.3 本地镜像容器的载入与载出
+
+当即无法连接互联网，又没有harbor的情况下，就只能使用最原始的方式把镜像和容器保存为文件的形式下载到本地
+
+- 俩种办法：
+  - 保存镜像
+  - 保存容器
+- 保存镜像：
+  - `docker save cd3ed0dfff7e -o /home/mysql.tar`
+  - `docker save mysql:5.7 > /home/mysql.tar`
+- 载入镜像：
+  - `docker load -i mysql.tar`
+- 保存容器：
+  - `docker export 974b919e1fdd -o /home/mysql-export.tar`
+- 载入容器：
+  - `docker import mysql-export.tar`
