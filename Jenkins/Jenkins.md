@@ -6,6 +6,10 @@
   - [2.4 构建环境](#24-构建环境)
   - [2.5 构建](#25-构建)
   - [2.6 构建后操作](#26-构建后操作)
+- [3、节点管理](#3节点管理)
+- [4、权限控制](#4权限控制)
+  - [4.1 注册的权限](#41-注册的权限)
+  - [4.2 用户权限](#42-用户权限)
 
 
 # 1、安装jenkins
@@ -61,3 +65,33 @@
 是否对文档进行归档，追踪
 
 ![other](https://github.com/xujiangchen/Test-Notes/blob/main/Jenkins/images/other.png)
+
+# 3、节点管理
+
+- jenkins的任务可以分布在不同的节点上运行
+- 节点上要配置java的运行环境，jdk版本要在1.5之上
+- 节点支持Linux，Windows，Mac
+- Jenkins运行的主机在逻辑上是master节点
+
+![other](https://github.com/xujiangchen/Test-Notes/blob/main/Jenkins/images/slave.png)
+
+# 4、权限控制
+
+都在全局安全配置中进行配置
+
+- Jenkins在初始化的时候会创建一个管理员用户
+- 通过管理员再进行其他的账号创建
+- 启用用户安全配置 Manager jenkins -> Configure Global Security
+
+## 4.1 注册的权限
+- 必须由管理员进行控制
+- 用户可以自由注册，启用之后可以看到sign-up的入口
+- 团队规模不大于10人，都不建议开启自由注册的功能，可以有效减少用户的管理成本
+- 管理员对用户的管理 Manager jenkins -> Manager user
+
+## 4.2 用户权限
+- 由授权策略进行配置
+- 原生的jenkins不提供用户组的管理，如果需要则要安装插件（Role-based Authorization Strategy）
+- 原生中常用的是安全矩阵，和项目矩阵授权策略
+  - 安全矩阵：是针对每个用户的
+  - 项目矩阵授权策略：是已项目为维度的
