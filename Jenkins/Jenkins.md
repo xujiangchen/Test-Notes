@@ -10,6 +10,10 @@
 - [4、权限控制](#4权限控制)
   - [4.1 注册的权限](#41-注册的权限)
   - [4.2 用户权限](#42-用户权限)
+- [5、常用插件](#5常用插件)
+- [6、邮件报警](#6邮件报警)
+- [7、父子job和矩阵job](#7父子job和矩阵job)
+  - [7.1 父子job](#71-父子job)
 
 
 # 1、安装jenkins
@@ -94,4 +98,30 @@
 - 原生的jenkins不提供用户组的管理，如果需要则要安装插件（Role-based Authorization Strategy）
 - 原生中常用的是安全矩阵，和项目矩阵授权策略
   - 安全矩阵：是针对每个用户的
-  - 项目矩阵授权策略：是已项目为维度的
+  - 项目矩阵授权策略：是以项目为维度的
+
+# 5、常用插件
+
+# 6、邮件报警
+jenkins自带邮件报警功能，不需要安装额外的插件
+- 系统管理 -> 系统设置 ：Jenkins Location 中找到`系统管理员邮件地址`输入框，输入邮箱
+- 保存上述操作，再次点开系统设置，将页面拖至底部，出现`邮件通知`
+
+![Email](https://github.com/xujiangchen/Test-Notes/blob/main/Jenkins/images/Email.png)
+
+- 在每个项目的后面添加上异常发送报警邮件。这样配置就完成了
+
+![EmailNotification](https://github.com/xujiangchen/Test-Notes/blob/main/Jenkins/images/EmailNotification.png)
+
+# 7、父子job和矩阵job
+
+## 7.1 父子job
+项目之间总会有关联，如何让项目依次执行呢？这时我们就需要创建job之间的触发关系
+常见的触发关系有三种：
+1. 只有构建稳定时触发
+2. 即使构建不稳定时也会触发
+3. 即使构建失败时也会触发
+
+再配置任务的时候可以让子job去关联父job，**当运行父job时子job也会被运行**
+
+![fzjob](https://github.com/xujiangchen/Test-Notes/blob/main/Jenkins/images/fzjob.png)
