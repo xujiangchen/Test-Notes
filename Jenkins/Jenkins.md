@@ -12,8 +12,7 @@
   - [4.2 用户权限](#42-用户权限)
 - [5、常用插件](#5常用插件)
 - [6、邮件报警](#6邮件报警)
-- [7、父子job和矩阵job](#7父子job和矩阵job)
-  - [7.1 父子job](#71-父子job)
+- [7、父子job](#7父子job)
 
 
 # 1、安装jenkins
@@ -113,9 +112,8 @@ jenkins自带邮件报警功能，不需要安装额外的插件
 
 ![EmailNotification](https://github.com/xujiangchen/Test-Notes/blob/main/Jenkins/images/EmailNotification.png)
 
-# 7、父子job和矩阵job
+# 7、父子job
 
-## 7.1 父子job
 项目之间总会有关联，如何让项目依次执行呢？这时我们就需要创建job之间的触发关系
 常见的触发关系有三种：
 1. 只有构建稳定时触发
