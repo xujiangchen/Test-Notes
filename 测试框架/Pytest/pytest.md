@@ -227,6 +227,8 @@ def test_login(login_r):
 
 ### 6.2 yaml 实现参数化
 
+`pip3 install pyyaml`
+
 #### 6.2.1 读取yaml文件
 
 ```python
